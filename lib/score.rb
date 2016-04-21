@@ -3,7 +3,7 @@ module Bowling
     attr_reader :pins, :first_in_row
 
     def initialize(pins = [0] * 20)
-      @pins = pins
+      @pins = pins.map { |p| p.to_i }
       @first_in_row = 0
     end
 
@@ -36,19 +36,19 @@ module Bowling
       end
 
       def strike?
-        pins[first_in_row].to_i == 10
-      end
-
-      def row_result
-        pins[first_in_row].to_i + pins[first_in_row + 1].to_i
+        pins[first_in_row] == 10
       end
 
       def spare_result
-        row_result + pins[first_in_row + 2].to_i
+        row_result + pins[first_in_row + 2]
       end
 
       def strike_result
-        pins[first_in_row].to_i + pins[first_in_row + 1].to_i + pins[first_in_row + 2].to_i
+        pins[first_in_row] + pins[first_in_row + 1] + pins[first_in_row + 2]
+      end
+
+      def row_result
+        pins[first_in_row] + pins[first_in_row + 1]
       end
   end
 end
