@@ -12,7 +12,7 @@ describe Bowling::Score do
   end
 
   it 'should return the sum of numbers inside it when String given' do
-    score = Bowling::Score.new(['3', '5', 'pl', 4])
+    score = Bowling::Score.new(['3', '5', 'pl', 4] + [0] * 16)
     expect(score.evaluate).to eq(12)
   end
 
