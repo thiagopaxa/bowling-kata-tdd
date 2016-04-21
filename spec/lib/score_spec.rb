@@ -1,37 +1,24 @@
 require './lib/score'
 
 describe Bowling::Score do
-
-  context 'when all results are 0' do
-    let(:score) { Bowling::Score.new([0,0,0,0,0,0,0]) }
-
-    it 'should return 0' do
-      expect(score.evaluate).to eq(0)
-    end
+  it 'should return 0 when all results are 0' do
+    score = Bowling::Score.new([0] * 20)
+    expect(score.evaluate).to eq(0)
   end
 
-  context 'when there are no results' do
-    let(:score) { Bowling::Score.new }
-
-    it 'should return 0' do
-      expect(score.evaluate).to eq(0)
-    end
+  it 'should return 0 when there are no results' do
+    score = Bowling::Score.new
+    expect(score.evaluate).to eq(0)
   end
 
-  context 'when String given' do
-    let(:score) { Bowling::Score.new(['3', '5', 'pl', 4]) }
-
-    it 'should return the sum of numbers inside it' do
-      expect(score.evaluate).to eq(12)
-    end
+  it 'should return the sum of numbers inside it when String given' do
+    score = Bowling::Score.new(['3', '5', 'pl', 4])
+    expect(score.evaluate).to eq(12)
   end
 
-  context 'when numbers given' do
-    let(:score) { Bowling::Score.new([1, 2, 3, 4, 5]) }
-
-    it 'should return sum of those numbers' do
-      expect(score.evaluate).to eq(15)
-    end
+  it 'should return sum of those numbers when numbers given' do
+    score = Bowling::Score.new([1] * 20)
+    expect(score.evaluate).to eq(20)
   end
 
 end

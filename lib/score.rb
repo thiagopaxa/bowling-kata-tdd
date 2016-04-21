@@ -1,13 +1,13 @@
 module Bowling
   class Score
-    attr_reader :results
+    attr_reader :pins
 
-    def initialize(results = [])
-      @results = results
+    def initialize(pins = [])
+      @pins = pins
     end
 
     def evaluate
-      @results.inject(0){ |r, x| r.to_i + x.to_i}
+      @pins.inject(0){ |r, x| r.to_i + x.to_i}
     end
   end
 end
